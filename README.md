@@ -1,1 +1,3 @@
-Produce output according to a format
+Reproduce the function printf.
+
+Authors: Gabriel Prochnau & Hugo Gomez
