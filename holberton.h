@@ -2,6 +2,7 @@
 #define HOLBERTON_H
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 /**
  * struct op - functions of formating text
@@ -13,7 +14,7 @@
 typedef struct op
 {
 	char *c;
-	void (*f)();
+	int (*f)();
 } printer;
 
 int _printf(const char *format, ...);

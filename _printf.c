@@ -10,7 +10,51 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	va_start (args, format);
 	int a, b, size;
+	printer spec[] = {
+		{"c", print_c},
+		{"s", print_s},
+		{NULL, NULL}
+			};
 
+	va_start (args, format);
+	a = 0;
+	while (format && format[a])
+	{
+		if (format[a] == '\\')
+		{
+			write(1, &format[a + 1], 1);
+			a++;
+			size++;
+		}
+	        else if (format[a] == '%')
+		{
+			b = 0;
+			while (spec[b].c != NULL)
+			{
+				if (format[a + 1] == '%')
+				{
+					write(1, &format[a], 1);
+					size++;
+					a++;
+					break;
+				}
+				else if (spec[b].c[0] == format[a + 1])
+				{
+					size += spec[b].f(args);
+					a++;
+					break;
+				}
+				b++;
+			}
+		}
+		else
+		{
+			write(1, &format[a], 1);
+			size++;
+		}
+		a++;
+	}
+	va_end(args);
+	return (size);
 }

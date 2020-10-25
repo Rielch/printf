@@ -8,7 +8,7 @@
 int print_c(va_list args)
 {
 	char c = va_arg(args, int);
-	write(1, c, 1);
+	write(1, &c, 1);
 	return (1);
 }
 
@@ -30,7 +30,7 @@ int print_s(va_list args)
 	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		write (1, str[i], 1);
+		write (1, &str[i], 1);
 	}
 	return (i);
 }
