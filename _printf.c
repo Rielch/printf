@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int a = 0, b, size;
+	int a = 0, b, size = 0;
 	printer spec[] = {
 		{"c", print_c},
 		{"s", print_s},
