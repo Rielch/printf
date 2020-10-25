@@ -7,7 +7,8 @@
  */
 int print_c(va_list args)
 {
-	write(1, va_arg(args, int), 1);
+	char c = va_arg(args, int);
+	write(1, c, 1);
 	return (1);
 }
 
@@ -27,7 +28,7 @@ int print_s(va_list args)
 	{
 		str = "";
 	}
-	for (i = 0; str != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		write (1, str[i], 1);
 	}
