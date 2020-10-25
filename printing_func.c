@@ -9,6 +9,10 @@ int print_c(va_list args)
 {
 	char c = va_arg(args, int);
 
+	if (c == NULL)
+	{
+		return (0);
+	}
 	write(1, &c, 1);
 	return (1);
 }
@@ -27,7 +31,7 @@ int print_s(va_list args)
 	str = va_arg(args, char *);
 	if (str == NULL)
 	{
-		str = "";
+		return (0);
 	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
