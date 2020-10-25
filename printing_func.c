@@ -25,13 +25,20 @@ int print_s(va_list args)
 	char *str;
 
 	str = va_arg(args, char *);
-	if (str == NULL)
+	if (str != NULL)
 	{
-		str = "";
+		if (str == "")
+		{
+			str = "(null)";
+		}
+		for (; str[i] != '\0'; i++)
+		{
+			write(1, &str[i], 1);
+		}
 	}
-	for (; str[i] != '\0'; i++)
+	else
 	{
-		write(1, &str[i], 1);
+		return (-1);
 	}
 	return (i);
 }
