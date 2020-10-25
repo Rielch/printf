@@ -21,7 +21,7 @@ int print_c(va_list args)
  */
 int print_s(va_list args)
 {
-	int i;
+	int i = 0;
 	char *str;
 
 	str = va_arg(args, char *);
@@ -29,7 +29,7 @@ int print_s(va_list args)
 	{
 		str = "";
 	}
-	for (i = 0; str[i] != '\0'; i++)
+	for (; str[i] != '\0'; i++)
 	{
 		write(1, &str[i], 1);
 	}
