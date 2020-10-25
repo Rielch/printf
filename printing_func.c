@@ -31,6 +31,7 @@ int print_s(va_list args)
 	str = va_arg(args, char *);
 	if (str == NULL)
 	{
+		str = "";
 		return (0);
 	}
 	for (i = 0; str[i] != '\0'; i++)
