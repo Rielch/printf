@@ -10,24 +10,16 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int a, b, size;
+	int a = 0, b, size;
 	printer spec[] = {
 		{"c", print_c},
 		{"s", print_s},
 		{NULL, NULL}
 			};
-
-	va_start (args, format);
-	a = 0;
+	va_start(args, format);
 	while (format && format[a])
 	{
-		if (format[a] == '\\')
-		{
-			write(1, &format[a + 1], 1);
-			a++;
-			size++;
-		}
-	        else if (format[a] == '%')
+		if (format[a] == '%')
 		{
 			b = 0;
 			while (spec[b].c != NULL)
