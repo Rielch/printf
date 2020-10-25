@@ -11,7 +11,7 @@ int print_c(va_list args)
 
 	if (c == NULL)
 	{
-		return (0);
+		c = "";
 	}
 	write(1, &c, 1);
 	return (1);
@@ -32,8 +32,7 @@ int print_s(va_list args)
 	if (str == NULL)
 	{
 		str = "";
-		return (0);
-	}
+        }
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		write(1, &str[i], 1);
