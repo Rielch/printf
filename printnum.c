@@ -120,7 +120,8 @@ int print_b(va_list args)
 int print_b2(unsigned int n)
 {
 	char c;
-	int size = 0, a;
+	int size = 0;
+	unsigned int a;
 
 	if (n != 0)
 	{
