@@ -66,6 +66,15 @@ int print_d(va_list args)
 	int n = va_arg(args, int);
 	int size = 0;
 	char min = '-';
+	char c;
+
+	if (n == 0)
+        {
+                c = n + '0';
+                write(1, &c, 1);
+                size++;
+	}
+
 
 	if (n < 0)
 	{
