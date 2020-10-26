@@ -24,7 +24,6 @@ int print_i(va_list args)
 	if (n < 0)
 	{
 		write(1, &min, 1);
-		n = n * -1;
 		size++;
 	}
 	size += print_i2(n);
@@ -43,10 +42,14 @@ int print_i2(const int n)
 	char c;
 	int size = 0, a;
 
-	if (n > 0)
+	if (n != 0)
 	{
 		a = n % 10;
 		size = print_i2(n / 10);
+		if (a < 0)
+		{
+			a = a * -1;
+		}
 		c = a + '0';
 		write(1, &c, 1);
 		size++;
@@ -79,7 +82,6 @@ int print_d(va_list args)
 	if (n < 0)
 	{
 		write(1, &min, 1);
-		n = n * -1;
 		size++;
 	}
 	size += print_i2(n);
