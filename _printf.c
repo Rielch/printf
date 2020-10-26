@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 
 int _printf2(const char *format, va_list args, printer *spec)
 {
-	int a = 0, b, size = 0;
+	int a = 0, b, size = 0, test = 0;
 
 	while (format && format[a])
 	{
@@ -51,19 +51,21 @@ int _printf2(const char *format, va_list args, printer *spec)
 					write(1, &format[a], 1);
 					size++;
 					a++;
+					test = 1;
 					break;
 				}
 				else if (spec[b].c[0] == format[a + 1])
 				{
 					size += spec[b].f(args);
 					a++;
+					test = 1;
 					break;
 				}
-				else
-				{
-					write(1, &format[a], 1);
-				}
 				b++;
+			}
+			if (test == 1)
+			{
+				write(1, &format[a], 1);
 			}
 		}
 		else
