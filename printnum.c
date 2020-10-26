@@ -72,10 +72,10 @@ int print_d(va_list args)
 	char c;
 
 	if (n == 0)
-        {
-                c = n + '0';
-                write(1, &c, 1);
-                size++;
+	{
+		c = n + '0';
+		write(1, &c, 1);
+		size++;
 	}
 	if (n < 0)
 	{
