@@ -59,6 +59,10 @@ int _printf2(const char *format, va_list args, printer *spec)
 					a++;
 					break;
 				}
+				else
+				{
+					write(1, &format[a], 1);
+				}
 				b++;
 			}
 		}
