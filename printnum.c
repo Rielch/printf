@@ -99,6 +99,7 @@ int print_b(va_list args)
 	unsigned int n = va_arg(args, int);
 	int size = 0;
 	char c;
+
 	if (n == 0)
 	{
 		c = n + '0';
@@ -120,6 +121,7 @@ int print_b2(unsigned int n)
 {
 	char c;
 	int size = 0, a;
+
 	if (n != 0)
 	{
 		a = n % 2;
