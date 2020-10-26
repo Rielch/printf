@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
  * Return: size of printed text
  */
 
-int _printf2(const char *format, va_list args, printer spec)
+int _printf2(const char *format, va_list args, printer *spec)
 {
 	int a = 0, b, size = 0;
 
