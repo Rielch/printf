@@ -12,6 +12,7 @@ int print_i(va_list args)
 	int n = va_arg(args, int);
 	int size = 0;
 	char min = '-';
+
 	if (n < 0)
 	{
 		write(1, &min, 1);
@@ -22,6 +23,12 @@ int print_i(va_list args)
 	return (size);
 }
 
+/**
+ * print_i2 - prints a number
+ *
+ * @n: number to print
+ * Return: Size in characters of the number
+ */
 
 int print_i2(int n)
 {
@@ -48,22 +55,16 @@ int print_i2(int n)
 
 int print_d(va_list args)
 {
-        int n = va_arg(args, int);
-        int size = 0;
-        char min = '-';
-        if (n <= 2147483647 && n >= -2147483648)
-        {
-                if (n < 0)
-                {
-                        write(1, &min, 1);
-                        n = n * -1;
-                        size++;
-                }
-                size += print_i2(n);
-                return (size);
-        }
-        else
-        {
-                return (0);
-        }
+	int n = va_arg(args, int);
+	int size = 0;
+	char min = '-';
+
+	if (n < 0)
+	{
+		write(1, &min, 1);
+		n = n * -1;
+		size++;
+	}
+	size += print_i2(n);
+	return (size);
 }
