@@ -66,6 +66,7 @@ int _printf2(const char *format, va_list args, printer *spec)
 			if (test == 0)
 			{
 				write(1, &format[a], 1);
+				size++;
 			}
 		}
 		else
