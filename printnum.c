@@ -85,3 +85,50 @@ int print_d(va_list args)
 	size += print_i2(n);
 	return (size);
 }
+
+/**
+ * print_b - prints an unsigned int as binary
+ *
+ * @args: argument given to the function
+ * Return: ammount of characters writed
+ */
+
+int print_b(va_list args)
+{
+
+	unsigned int n = va_arg(args, int);
+	int size = 0;
+	char c;
+
+	if (n == 0)
+	{
+		c = n + '0';
+		write(1, &c, 1);
+		size++;
+	}
+	size = print_b2(n);
+	return (size);
+}
+
+/**
+ * print_b2 - prints as binary
+ *
+ * @n: number to print
+ * Return: Ammount of characters writed
+ */
+
+int print_b2(unsigned int n)
+{
+	char c;
+	int size = 0, a;
+
+	if (n != 0)
+	{
+		a = n % 2;
+		size = print_b2(n / 2);
+		c = a + '0';
+		write(1, &c, 1);
+		size++;
+	}
+	return (size);
+}
