@@ -63,7 +63,7 @@ int _printf2(const char *format, va_list args, printer *spec)
 				}
 				b++;
 			}
-			if (test == 1)
+			if (test == 0)
 			{
 				write(1, &format[a], 1);
 			}
