@@ -12,6 +12,14 @@ int print_i(va_list args)
 	int n = va_arg(args, int);
 	int size = 0;
 	char min = '-';
+	char c;
+
+	if (n == 0)
+	{
+		c = n + '0';
+		write(1, &c, 1);
+		size++;
+	}
 
 	if (n < 0)
 	{
@@ -30,7 +38,7 @@ int print_i(va_list args)
  * Return: Size in characters of the number
  */
 
-int print_i2(int n)
+int print_i2(const int n)
 {
 	char c;
 	int size = 0, a;
