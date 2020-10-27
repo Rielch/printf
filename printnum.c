@@ -106,7 +106,7 @@ int print_b(va_list args)
 		write(1, &c, 1);
 		size++;
 	}
-	size = print_b2(n);
+	size += print_b2(n);
 	return (size);
 }
 
@@ -123,7 +123,7 @@ int print_b2(unsigned int n)
 	int size = 0;
 	unsigned int a;
 
-	if (n != 0)
+	if (n > 0)
 	{
 		a = n % 2;
 		size = print_b2(n / 2);
