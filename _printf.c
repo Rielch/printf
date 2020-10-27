@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int size = 0;
+	char *buff = malloc(1024 * sizeof(char));
 	printer spec[] = {
 		{"c", print_c},
 		{"s", print_s},
@@ -28,7 +29,9 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	size = _printf2(format, args, spec);
+	size = _printf2(format, args, spec, buff);
+	write(1, buff, size);
+	free(buff);
 	va_end(args);
 	return (size);
 }
@@ -39,10 +42,11 @@ int _printf(const char *format, ...)
  * @format: text to be formated
  * @args: list of arguments
  * @spec: list of functions to format text
+ * @buff: buffer
  * Return: size of printed text
  */
 
-int _printf2(const char *format, va_list args, printer *spec)
+int _printf2(const char *format, va_list args, printer *spec, char *buff)
 {
 	int a = 0, b, size = 0, test = 0;
 
@@ -55,7 +59,7 @@ int _printf2(const char *format, va_list args, printer *spec)
 			{
 				if (format[a + 1] == '%')
 				{
-					write(1, &format[a], 1);
+					buff[size] = format[a];
 					size++;
 					a++;
 					test = 1;
@@ -63,7 +67,7 @@ int _printf2(const char *format, va_list args, printer *spec)
 				}
 				else if (spec[b].c[0] == format[a + 1])
 				{
-					size += spec[b].f(args);
+					size += spec[b].f(args, buff, size);
 					a++;
 					test = 1;
 					break;
@@ -72,13 +76,13 @@ int _printf2(const char *format, va_list args, printer *spec)
 			}
 			if (test == 0)
 			{
-				write(1, &format[a], 1);
+				buff[size] = format[a];
 				size++;
 			}
 		}
 		else
 		{
-			write(1, &format[a], 1);
+			buff[size] = format[a];
 			size++;
 		}
 		a++;

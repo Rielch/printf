@@ -3,13 +3,15 @@
 /**
  * print_c - prints a single char
  * @args: arguments received from _printf
+ * @buff: buffer
+ * @ch: character count for buffer
  * Return: numbers of chars
  */
-int print_c(va_list args)
+int print_c(va_list args, char *buff, int ch)
 {
 	char c = va_arg(args, int);
 
-	write(1, &c, 1);
+	buff[ch] = c;
 	return (1);
 }
 
@@ -17,9 +19,11 @@ int print_c(va_list args)
 /**
  * print_s - prints a string
  * @args: arguments received from _printf
+ * @buff: buffer
+ * @ch: character count for buffer
  * Return: number of chars
  */
-int print_s(va_list args)
+int print_s(va_list args, char *buff, int ch)
 {
 	int i;
 	char *str;
@@ -31,7 +35,7 @@ int print_s(va_list args)
 	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		write(1, &str[i], 1);
+		buff[ch + i] = str[i];
 	}
 	return (i);
 }

@@ -4,22 +4,23 @@
  * print_x - prints a number in hexadecimal
  *
  * @args: argument given to the function
+ * @buff: buffer
+ * @ch: character count for buffer
  * Return: ammount of characters writed
  */
 
-int print_x(va_list args)
+int print_x(va_list args, char *buff, int ch)
 {
 	unsigned int n, size = 0;
-	char c;
 
 	n = va_arg(args, int);
 	if (n == 0)
 	{
-		c = n + '0';
-		write(1, &c, 1);
+		buff[ch + size] = n + '0';
 		size++;
 	}
-	size += print_x2(n);
+	ch = ch + size;
+	size += print_x2(n, buff, ch);
 	return (size);
 }
 
@@ -27,30 +28,29 @@ int print_x(va_list args)
  * print_x2 - prints a number in hexadecimal
  *
  * @n: number to print in hexadecimal
+ * @buff: buffer
+ * @ch: character count for buffer
  * Return: ammount of characters writed
  */
 
-int print_x2(unsigned int n)
+int print_x2(unsigned int n, char *buff, int ch)
 {
 	int size = 0;
 	unsigned int a;
-	char c;
 
 	if (n != 0)
 	{
 		a = n % 16;
-		size = print_x2(n / 16);
+		size = print_x2((n / 16), buff, ch);
 		if (a / 10 != 0)
 		{
 			a = a % 10;
-			c = a + 'a';
-			write(1, &c, 1);
+			buff[ch + size] = a + 'a';
 			size++;
 		}
 		else
 		{
-			c = a + '0';
-			write(1, &c, 1);
+			buff[ch + size] = a + '0';
 			size++;
 		}
 	}
@@ -61,23 +61,24 @@ int print_x2(unsigned int n)
  * print_X - prints an integer in hexadecimal in uppercase
  *
  * @args: argumen given to the function
+ * @buff: buffer
+ * @ch: character count for buffer
  * Return: ammount of characters writen
  */
 
-int print_X(va_list args)
+int print_X(va_list args, char *buff, int ch)
 {
 	int size = 0;
 	unsigned int n;
-	char c;
 
 	n = va_arg(args, int);
 	if (n == 0)
 	{
-		c = n + '0';
-		write(1, &c, 1);
+		buff[ch + size] = n + '0';
 		size++;
 	}
-	size += print_X2(n);
+	ch = ch + size;
+	size += print_X2(n, buff, ch);
 	return (size);
 }
 
@@ -85,30 +86,29 @@ int print_X(va_list args)
  * print_X2 - prints a number in hexadecimal in uppercase
  *
  * @n: number to print
+ * @buff: buffer
+ * @ch: character count for buffer
  * Return: ammount of characters writed
  */
 
-int print_X2(unsigned int n)
+int print_X2(unsigned int n, char *buff, int ch)
 {
 	unsigned int a;
 	int size = 0;
-	char c;
 
 	if (n != 0)
 	{
 		a = n % 16;
-		size = print_X2(n / 16);
+		size = print_X2((n / 16), buff, ch);
 		if (a / 10 != 0)
 		{
 			a = a % 10;
-			c = a + 'A';
-			write(1, &c, 1);
+			buff[ch + size] = a + 'A';
 			size++;
 		}
 		else
 		{
-			c = a + '0';
-			write(1, &c, 1);
+			buff[ch + size] = a + '0';
 			size++;
 		}
 	}
