@@ -29,8 +29,15 @@ Use the operator % and add any option:
 .br
 %d - for printing a decimal -
 .br
-%b - for printing an unsigned int as a binary number -
+%b - for printing an unsigned integer as a binary number -
 .br
+%u - for printing an unsigned integer -
+.br
+%o - for printing an integer as an octal number -
+.br
+%x - for printing an integer as a hexadecimal number -
+.br
+%X - for printing an integer as a hexadecimal but in uppercase -
 %% - prints a single % -
 .br
 .PP
