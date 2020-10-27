@@ -1,0 +1,48 @@
+.TH "_printf" "3" "October 2020"
+
+.SH NAME
+_printf - format given data and print it on screen.
+
+.SH SYNOPSIS
+
+#include "holberton.h"
+.br
+_printf(format, arguments)
+.br
+int _printf(const char *format, ...);
+.br
+
+.SH DESCRIPTION
+
+Takes any argument and prints it according to each format specified.
+.br
+.PP
+FORMAT
+.br
+Use the operator % and add any option:
+.br
+%c - for printing a single character -
+.br
+%s - for printing a string -
+.br
+%i - for printing an integer -
+.br
+%d - for printing a decimal -
+.br
+%b - for printing an unsigned int as a binary number -
+.br
+%% - prints a single % -
+.br
+.PP
+RETURN
+.br
+.PP
+The function returns an int with the count of characters printed.
+.br
+In case that the string is "%%" the function returns (-1).
+.br
+
+.SH AUTHOR
+Written by Gabriel Prochnau and Hugo Gomez
+.br
+https://github.com/Rielch/printf
