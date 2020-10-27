@@ -16,8 +16,9 @@ int _printf(const char *format, ...);
 
 Takes any argument and prints it according to each format specified.
 .br
+Returns the numbers of characters printed (excluding the null byte at the end).
 .PP
-FORMAT
+.B FORMAT:
 .br
 Use the operator % and add any option:
 .br
@@ -41,14 +42,23 @@ Use the operator % and add any option:
 %% - prints a single % -
 .br
 .PP
-RETURN
+.B RETURN
 .br
 .PP
 The function returns an int with the count of characters printed.
 .br
 In case that the string is "%%" the function returns (-1).
 .br
-
+.PP
+.B USE
+.br
+_printf("%c", 'H');
+.br
+Result: H
+.br
+_printf("%s", "Hello");
+.br
+Result: Hello
 .SH AUTHOR
 Written by Gabriel Prochnau and Hugo Gomez
 .br
