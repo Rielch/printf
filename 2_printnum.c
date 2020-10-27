@@ -39,7 +39,7 @@ int print_u2(unsigned int n)
 	if (n > 0)
 	{
 		a = n % 10;
-		size = print_u2(n);
+		size = print_u2(n / 10);
 		c = a + '0';
 		write(1, &c, 1);
 		size++;
