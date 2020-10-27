@@ -9,18 +9,13 @@
 
 int print_x(va_list args)
 {
-	int n, size = 0;
-	char c = '-';
+	unsigned int n, size = 0;
+	char c;
 
 	n = va_arg(args, int);
 	if (n == 0)
 	{
 		c = n + '0';
-		write(1, &c, 1);
-		size++;
-	}
-	if (n < 0)
-	{
 		write(1, &c, 1);
 		size++;
 	}
@@ -35,19 +30,16 @@ int print_x(va_list args)
  * Return: ammount of characters writed
  */
 
-int print_x2(int n)
+int print_x2(unsigned int n)
 {
-	int size = 0, a;
+	int size = 0;
+	unsigned int a;
 	char c;
 
 	if (n != 0)
 	{
 		a = n % 16;
 		size = print_x2(n / 16);
-		if (a < 0)
-		{
-			a = a * -1;
-		}
 		if (a / 10 != 0)
 		{
 			a = a % 10;
@@ -74,18 +66,14 @@ int print_x2(int n)
 
 int print_X(va_list args)
 {
-	int size = 0, n;
-	char c = '-';
+	int size = 0;
+	unsigned int n;
+	char c;
 
 	n = va_arg(args, int);
 	if (n == 0)
 	{
 		c = n + '0';
-		write(1, &c, 1);
-		size++;
-	}
-	if (n < 0)
-	{
 		write(1, &c, 1);
 		size++;
 	}
@@ -100,19 +88,16 @@ int print_X(va_list args)
  * Return: ammount of characters writed
  */
 
-int print_X2(int n)
+int print_X2(unsigned int n)
 {
-	int a, size = 0;
+	unsigned int a;
+	int size = 0;
 	char c;
 
 	if (n != 0)
 	{
 		a = n % 16;
 		size = print_X2(n / 16);
-		if (a < 0)
-		{
-			a = a * -1;
-		}
 		if (a / 10 != 0)
 		{
 			a = a % 10;

@@ -56,17 +56,13 @@ int print_u2(unsigned int n)
 
 int print_o(va_list args)
 {
-	int size = 0, n = va_arg(args, int);
-	char c = '-';
+	int size = 0;
+	unsigned int n = va_arg(args, int);
+	char c;
 
 	if (n == 0)
 	{
 		c = n + '0';
-		write(1, &c, 1);
-		size++;
-	}
-	if (n < 0)
-	{
 		write(1, &c, 1);
 		size++;
 	}
@@ -81,19 +77,16 @@ int print_o(va_list args)
  * Return: ammount of characters writed
  */
 
-int print_o2(int n)
+int print_o2(unsigned int n)
 {
-	int a, size = 0;
+	unsigned int a;
+	int size = 0;
 	char c;
 
 	if (n != 0)
 	{
 		a = n % 8;
 		size = print_o2(n / 8);
-		if (a < 0)
-		{
-			a = a * -1;
-		}
 		c = a + '0';
 		write(1, &c, 1);
 		size++;

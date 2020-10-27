@@ -30,10 +30,10 @@ int print_b2(unsigned int n);
 int print_u(va_list args);
 int print_u2(unsigned int n);
 int print_o(va_list args);
-int print_o2(int n);
+int print_o2(unsigned int n);
 int print_x(va_list args);
-int print_x2(int n);
+int print_x2(unsigned int n);
 int print_X(va_list args);
-int print_X2(int n);
+int print_X2(unsigned int n);
 
 #endif /* HOLBERTON_H */
