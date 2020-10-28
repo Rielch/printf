@@ -126,9 +126,10 @@ int print_X2(unsigned int n, char *buff, int ch)
 
 int print_XS(unsigned int n, char *buff, int ch)
 {
-        int size = 0;
-        if (n < 16)
-        {
+	int size = 0;
+
+	if (n < 16)
+	{
 		buff[ch + size] = '0';
 		size++;
 		if (n == 0)
@@ -136,8 +137,8 @@ int print_XS(unsigned int n, char *buff, int ch)
 			buff[ch + size] = n + '0';
 			size++;
 		}
-        }
-        ch = ch + size;
-        size += print_X2(n, buff, ch);
-        return (size);
+	}
+	ch = ch + size;
+	size += print_X2(n, buff, ch);
+	return (size);
 }
