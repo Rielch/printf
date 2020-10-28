@@ -114,3 +114,30 @@ int print_X2(unsigned int n, char *buff, int ch)
 	}
 	return (size);
 }
+
+/**
+ * print_XS - prints an integer in hexadecimal in uppercase
+ *
+ * @n: argumen given to the function
+ * @buff: buffer
+ * @ch: character count for buffer
+ * Return: ammount of characters writen
+ */
+
+int print_XS(unsigned int n, char *buff, int ch)
+{
+        int size = 0;
+        if (n < 16)
+        {
+		buff[ch + size] = '0';
+		size++;
+		if (n == 0)
+		{
+			buff[ch + size] = n + '0';
+			size++;
+		}
+        }
+        ch = ch + size;
+        size += print_X2(n, buff, ch);
+        return (size);
+}

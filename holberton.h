@@ -35,5 +35,7 @@ int print_x(va_list args, char *buff, int ch);
 int print_x2(unsigned int n, char *buff, int ch);
 int print_X(va_list args, char *buff, int ch);
 int print_X2(unsigned int n, char *buff, int ch);
+int print_S(va_list args, char *buff, int ch);
+int print_XS(unsigned int n, char *buff, int ch);
 
 #endif /* HOLBERTON_H */
