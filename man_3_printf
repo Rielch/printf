@@ -39,6 +39,10 @@ Use the operator % and add any option:
 %x - for printing an integer as a hexadecimal number -
 .br
 %X - for printing an integer as a hexadecimal but in uppercase -
+.br
+%S - prints the non printable character as an x and followed by
+the ASCII code in hexadecimal (uppercase and 2 characters)
+.br
 %% - prints a single % -
 .br
 .PP
