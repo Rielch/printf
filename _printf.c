@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int size = 0;
-	char *buff = malloc(1024 * sizeof(char));
+	char buff[BUFSIZE];
 	printer spec[] = {
 		{"c", print_c},
 		{"s", print_s},
@@ -31,7 +31,6 @@ int _printf(const char *format, ...)
 	}
 	size = _printf2(format, args, spec, buff);
 	write(1, buff, size);
-	free(buff);
 	va_end(args);
 	return (size);
 }

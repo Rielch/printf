@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <limits.h>
-
+#define BUFSIZE 1024
 /**
  * struct op - functions of formating text
  *
